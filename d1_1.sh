@@ -28,7 +28,14 @@ while read line; do
     if [[ $cur -eq 0 ]]; then
         total=$(($total + 1))
     fi
+
+    progres=$(($progres + 1))
+
+    if [[ $(( $progres % 100 )) -eq 0 ]]; then
+        echo $progres
+    fi
 done < $file
 
+echo ""
 echo $total
 echo "done"
